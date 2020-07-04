@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="695.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bioskop.admin.AdminController">
+   <left>
+      <VBox prefHeight="513.0" prefWidth="128.0" style="-fx-background-color: #444755;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="132.0" fitWidth="149.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/user.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="149.0" text="Admin" textAlignment="CENTER" textFill="#fff3f3">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnjadwal" mnemonicParsing="false" onMouseClicked="#btnjadwal" prefHeight="46.0" prefWidth="154.0" style="-fx-background-color: transparent; -fx-border-color: #FFFF; -fx-border-width: 2px 0px 2px 0px;" text="Jadwal" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnruangan" layoutX="10.0" layoutY="155.0" mnemonicParsing="false" onMouseClicked="#btnruangan" prefHeight="46.0" prefWidth="154.0" style="-fx-background-color: transparent; -fx-border-color: #FFFF; -fx-border-width: 0px 0px 2px 0px;" text="Ruangan" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnfilm" layoutX="10.0" layoutY="201.0" mnemonicParsing="false" onMouseClicked="#btnfilm" prefHeight="46.0" prefWidth="154.0" style="-fx-background-color: transparent; -fx-border-color: #FFFF; -fx-border-width: 0px 0px 2px 0px;" text="Film" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <AnchorPane fx:id="ap" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
