@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" prefHeight="634.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bioskop.admin.AdminController">
-   <children>
-      <Pane prefHeight="634.0" prefWidth="200.0" style="-fx-background-color: #444755;">
-         <children>
-            <ImageView fitHeight="115.0" fitWidth="154.0" layoutX="23.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/logo.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
-   </children>
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bioskop.kasirr.KasirController">
+   <top>
+      <Pane prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: #444755;" BorderPane.alignment="CENTER" />
+   </top>
+   <center>
+      <TableView fx:id="table_jadwal" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="nama_film" prefWidth="233.0" text="Nama Film" />
+          <TableColumn fx:id="ruangan" minWidth="0.0" prefWidth="70.0" text="Ruangan" />
+            <TableColumn fx:id="jamtayang" prefWidth="211.0" text="Jam Tayang" />
+            <TableColumn fx:id="aksi" prefWidth="85.0" text="Aksi" />
+        </columns>
+      </TableView>
+   </center>
+</BorderPane>
