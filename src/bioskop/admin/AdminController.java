@@ -62,13 +62,13 @@ public class AdminController implements Initializable {
     
     private void loadPage(String page){
         Parent root = null;
-        
         try { 
             root = FXMLLoader.load(getClass().getResource(page));
         } catch (IOException ex) {
 //            Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
         bp.setCenter(root);
+        
     }
     
 }

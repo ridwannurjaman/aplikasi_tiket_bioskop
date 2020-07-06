@@ -3,18 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bioskop.kasirr;
+package bioskop.admin.pageJadwal;
 
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.util.Observable;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -23,30 +19,34 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.paint.Color;
+import models.JadwalModelAdmin;
 import models.jadwalModel;
 import utils.ConnectionUtil;
+import static utils.connection.con;
 
 /**
  * FXML Controller class
  *
  * @author user
  */
-public class KasirController implements Initializable {
-
+public class JadwalController implements Initializable {
     Connection con = null;
     PreparedStatement preparedStatement = null;
     ResultSet resultSet = null;
     @FXML
-    private TableColumn<jadwalModel, String> nama_film;
+    private Button btntambah;
     @FXML
-    private TableColumn<jadwalModel, String> ruangan;
+    private TableView<JadwalModelAdmin> tab_jadwal;
     @FXML
-    private TableColumn<jadwalModel, String> jamtayang;
+    private TableColumn<JadwalModelAdmin,String> col_film;
     @FXML
-    private TableColumn<jadwalModel, String> aksi;
+    private TableColumn<JadwalModelAdmin,String> col_ruangan;
     @FXML
-    private TableView<jadwalModel> table_jadwal;
+    private TableColumn<JadwalModelAdmin,String> col_jamtayang;
+    @FXML
+    private TableColumn<JadwalModelAdmin,String> col_del;
+    @FXML
+    private TableColumn<JadwalModelAdmin,String> col_edit;
 
     /**
      * Initializes the controller class.
@@ -61,52 +61,47 @@ public class KasirController implements Initializable {
         } else {
             System.out.println("Koneksi Berhasil");
         }
-    }
-
-    public KasirController() {
+    }    
+    public JadwalController() {
         con = ConnectionUtil.conDB();
     }
-
-    private void initTable() {
-        initCols();
-    }
-
-    private void initCols() {
-        nama_film.setCellValueFactory(new PropertyValueFactory<>("nama"));
-        ruangan.setCellValueFactory(new PropertyValueFactory<>("ruangan"));
-        jamtayang.setCellValueFactory(new PropertyValueFactory<>("jamtayang"));
-        aksi.setCellValueFactory(new PropertyValueFactory<>("aksi"));
-//        edittableCols();
-    }
-
-    private void edittableCols() {
-    }
-
     private void loadData() {
-        LocalDate myObj = LocalDate.now();
-        ObservableList<jadwalModel> list = FXCollections.observableArrayList();
+
+        ObservableList<JadwalModelAdmin> list = FXCollections.observableArrayList();
         String query = "SELECT\n"
                 + "	jadwal.jam_tayang ,ruangan.id as idR,film.judul,ruangan.nama_ruangan\n"
                 + "FROM\n"
                 + "	jadwal\n"
                 + "	JOIN film  ON jadwal.id_film = film.id\n"
-                + "	JOIN ruangan ON jadwal.id_ruangan = ruangan.id"
-                + "	WHERE jadwal.jam_tayang BETWEEN '"+myObj+" 00:00:00' AND '"+myObj+" 23:59:00'";
+                + "	JOIN ruangan ON jadwal.id_ruangan = ruangan.id";
 
         try {
             preparedStatement = con.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
 
-                list.add(new jadwalModel(
-                        resultSet.getString("judul"), resultSet.getString("nama_ruangan"), resultSet.getString("jam_tayang"), new Button("Pilih"),resultSet.getString("idR")
+                list.add(new JadwalModelAdmin(
+                        resultSet.getString("judul"), resultSet.getString("nama_ruangan"), resultSet.getString("jam_tayang"), new Button("DELETE"),new Button("EDIT")
                 ));
             }
-            table_jadwal.setItems(list);
+            tab_jadwal.setItems(list);
         } catch (SQLException ex) {
 //            Logger.getLogger(KasirController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
 
+    private void initTable() {
+        initCols();
+    }
+    
+    private void initCols() {
+        col_film.setCellValueFactory(new PropertyValueFactory<>("nama"));
+        col_ruangan.setCellValueFactory(new PropertyValueFactory<>("ruangan"));
+        col_jamtayang.setCellValueFactory(new PropertyValueFactory<>("jamtayang"));
+        col_del.setCellValueFactory(new PropertyValueFactory<>("delete"));
+        col_edit.setCellValueFactory(new PropertyValueFactory<>("edit"));
+//        edittableCols();
+    }
+    
 }

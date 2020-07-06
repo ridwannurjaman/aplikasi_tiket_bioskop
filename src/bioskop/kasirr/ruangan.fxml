@@ -40,14 +40,14 @@
          <left>
             <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="btnback" layoutX="67.0" layoutY="26.0" mnemonicParsing="false" text="Button" />
+                  <Button fx:id="btnback" layoutX="67.0" layoutY="26.0" mnemonicParsing="false" text="Back" />
                </children>
             </Pane>
          </left>
          <right>
             <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="btnnext" layoutX="74.0" layoutY="26.0" mnemonicParsing="false" text="Button" />
+                  <Button fx:id="btnnext" layoutX="74.0" layoutY="26.0" mnemonicParsing="false" text="Next" />
                </children>
             </Pane>
          </right>

@@ -130,6 +130,12 @@ public class RuanganController implements Initializable {
             preparedStatement = con.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
             System.out.println(resultSet);
+            
+            for (int i = 0; i < resultSet.getMetaData().getColumnCount(); i++) {
+                
+                
+            }
+            
             while (resultSet.next()) {
                 list.add(new ruanganModel(
                         new CheckBox("Pilih Kursi"),resultSet.getString("posisi_kursi"),resultSet.getString("status")

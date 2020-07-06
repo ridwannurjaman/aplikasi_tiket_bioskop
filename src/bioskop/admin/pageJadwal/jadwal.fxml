@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 
-<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Label text="Label" />
-   </children>
-</HBox>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bioskop.admin.pageJadwal.JadwalController">
+   <top>
+      <AnchorPane prefHeight="87.0" prefWidth="877.0" style="-fx-background-color: #444755;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btntambah" layoutX="686.0" layoutY="48.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="177.0" style="-fx-background-color: #18cc3c;" text="Tambah Jadwal" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <TableView fx:id="tab_jadwal" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="col_film" prefWidth="306.0" text="FILM" />
+          <TableColumn fx:id="col_ruangan" prefWidth="174.0" text="RUANGAN" />
+            <TableColumn fx:id="col_jamtayang" prefWidth="199.0" text="JAM TAYANG" />
+            <TableColumn fx:id="col_del" prefWidth="97.0" text="DELETE" />
+            <TableColumn fx:id="col_edit" prefWidth="100.0" text="EDIT" />
+        </columns>
+      </TableView>
+   </center>
+</BorderPane>
