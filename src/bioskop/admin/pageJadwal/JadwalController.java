@@ -5,6 +5,7 @@
  */
 package bioskop.admin.pageJadwal;
 
+import bioskop.kasirr.RuanganController;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,15 +15,18 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import models.JadwalModelAdmin;
-import models.jadwalModel;
 import utils.ConnectionUtil;
-import static utils.connection.con;
 
 /**
  * FXML Controller class
@@ -102,6 +106,23 @@ public class JadwalController implements Initializable {
         col_del.setCellValueFactory(new PropertyValueFactory<>("delete"));
         col_edit.setCellValueFactory(new PropertyValueFactory<>("edit"));
 //        edittableCols();
+    }
+    
+    
+
+    @FXML
+    private void tambahdata(MouseEvent event) {
+        try {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("addData.fxml"));
+                loader.load();
+                Parent p = loader.getRoot();
+                Stage stage = new Stage();
+                stage.setScene(new Scene(p));
+                stage.showAndWait();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
     }
     
 }
