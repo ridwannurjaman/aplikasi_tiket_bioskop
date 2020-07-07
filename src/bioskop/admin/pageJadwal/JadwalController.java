@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -51,6 +52,8 @@ public class JadwalController implements Initializable {
     private TableColumn<JadwalModelAdmin,String> col_del;
     @FXML
     private TableColumn<JadwalModelAdmin,String> col_edit;
+    @FXML
+    private Button btnrefresh;
 
     /**
      * Initializes the controller class.
@@ -123,6 +126,11 @@ public class JadwalController implements Initializable {
             } catch (Exception e) {
                 System.out.println(e);
             }
+    }
+
+    @FXML
+    private void refreshData(ActionEvent event) {
+        loadData();
     }
     
 }

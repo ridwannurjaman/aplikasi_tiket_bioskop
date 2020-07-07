@@ -11,6 +11,7 @@
       <AnchorPane prefHeight="87.0" prefWidth="877.0" style="-fx-background-color: #444755;" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="btntambah" layoutX="686.0" layoutY="48.0" mnemonicParsing="false" onMouseClicked="#tambahdata" prefHeight="17.0" prefWidth="177.0" style="-fx-background-color: #18cc3c;" text="Tambah Jadwal" textFill="WHITE" />
+            <Button fx:id="btnrefresh" layoutX="624.0" layoutY="48.0" mnemonicParsing="false" onAction="#refreshData" style="-fx-background-color: #ff0101;" text="Refresh" textFill="WHITE" />
          </children>
       </AnchorPane>
    </top>
